@@ -5,7 +5,7 @@
 if [[  ! ${APP_ETCD_PORT_2379_TCP_ADDR-x} ]];
 then
 echo "APP_ETCD_PORT_2379_TCP_ADDR is not defined"
-exit
+exit 1
 fi
 
 [[ $DEBUG ]] && set -x
