@@ -11,6 +11,7 @@ DIR=$(dirname $0)
 configure_etcd
 
 sed -i "s/change/$CLUSTER/g" conf.d/haproxy.cfg.toml
+sed -i "s/change/$CLUSTER/g" templates/haproxy.cfg
 
 # wait for confd to run once and install initial templates
 until confd -onetime -node $ETCD -config-file /app/confd.toml; do
