@@ -2,11 +2,11 @@
 
 
 
-if [ -n "${APP_ETCD_PORT_2379_TCP_ADDR+1}" ]; then
-  echo "APP_ETCD_PORT_2379_TCP_ADDR is defined"
+if [[  APP_ETCD_PORT_2379_TCP_ADDR && ${APP_ETCD_PORT_2379_TCP_ADDR-x} ]];
+then
+echo "APP_ETCD_PORT_2379_TCP_ADDR is defined"
 else
-  echo "APP_ETCD_PORT_2379_TCP_ADDR is not defined"
-  exit 1
+echo "APP_ETCD_PORT_2379_TCP_ADDR is not defined"
 fi
 
 [[ $DEBUG ]] && set -x
