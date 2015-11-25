@@ -1,0 +1,33 @@
+#!/bin/bash
+
+[[ $DEBUG ]] && set -x
+
+DIR=$(dirname $0)
+
+# functions
+. $DIR/functions
+
+
+# wait for confd to run once and install initial templates
+until confd -onetime -node $ETCD -config-file /app/confd.toml; do
+  echo "echo ==> database: waiting for confd to write initial templates..."
+  sleep $(($ETCD_TTL/2))  # sleep for half the TTL
+done
+
+haproxy -f /etc/haproxy/haproxy.cfg -V &
+
+SERVICE_PID=$!
+
+echo $SERVICE_PID > /app/haproxy.pid
+
+# smart shutdown on SIGINT and SIGTERM
+function on_exit() {
+    kill -TERM $SERVICE_PID
+    wait $SERVICE_PID 2>/dev/null
+    exit 0
+}
+trap on_exit INT TERM
+
+# spawn confd in the background to update services based on etcd changes
+confd -node $ETCD -config-file /app/confd.toml &
+CONFD_PID=$!

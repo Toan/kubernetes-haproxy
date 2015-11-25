@@ -1,0 +1,11 @@
+[template]
+src   = "haproxy.cfg"
+dest  = "/usr/local/etc/haproxy/haproxy.cfg"
+owner = "root"
+group = "root"
+mode  = "0644"
+keys = [
+  "/mysql/change/port",
+  "/mysql/change/mysqlNodes"
+]
+reload_cmd = "/app/bin/reload_haproxy"
