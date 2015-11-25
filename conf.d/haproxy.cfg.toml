@@ -6,6 +6,6 @@ group = "root"
 mode  = "0644"
 keys = [
   "/mysql/change/port",
-  "/mysql/change/mysqlNodes?sorted=true"
+  "/mysql/change/mysqlNodes"
 ]
 reload_cmd = "/app/bin/reload_haproxy"

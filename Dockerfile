@@ -5,7 +5,7 @@ ADD https://s3-us-west-2.amazonaws.com/opdemand/etcdctl-v0.4.5 /usr/local/bin/et
 RUN chmod +x /usr/local/bin/etcdctl
 
 # install confd
-ADD https://s3-us-west-2.amazonaws.com/opdemand/confd-v0.5.0-json /usr/local/bin/confd
+ADD https://github.com/kelseyhightower/confd/releases/download/v0.6.0/confd-0.6.0-linux-amd64 /usr/local/bin/confd
 RUN chmod +x /usr/local/bin/confd
 
 ADD . /app
