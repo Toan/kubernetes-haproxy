@@ -2,7 +2,7 @@
 
 
 
-if [[  APP_ETCD_PORT_2379_TCP_ADDR && ${APP_ETCD_PORT_2379_TCP_ADDR-x} ]];
+if [[  $APP_ETCD_PORT_2379_TCP_ADDR && ${APP_ETCD_PORT_2379_TCP_ADDR-x} ]];
 then
 echo "APP_ETCD_PORT_2379_TCP_ADDR is defined"
 else
