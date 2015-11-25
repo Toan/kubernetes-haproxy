@@ -35,3 +35,11 @@ trap on_exit INT TERM
 # spawn confd in the background to update services based on etcd changes
 confd -node $ETCD -config-file /app/confd.toml &
 CONFD_PID=$!
+
+while true
+do
+	echo "Infinite loop..."
+	sleep 5
+done
+
+wait
