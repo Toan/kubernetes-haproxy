@@ -2,7 +2,7 @@
 
 function configure_etcd() {
   export ETCD_PORT=${ETCD_PORT:-4001}
-  export ETCD="APP_ETCD_PORT_2379_TCP_ADDR:$ETCD_PORT"
+  export ETCD="$APP_ETCD_PORT_2379_TCP_ADDR:$ETCD_PORT"
   export ETCD_PATH=${ETCD_PATH:-/mysql}
   export ETCD_TTL=${ETCD_TTL:-10}
   export ETCD_OPTIONS="--no-sync -C $ETCD"
