@@ -2,7 +2,7 @@
 
 
 
-if [ -z ${APP_ETCD_PORT_2379_TCP_ADDR+x} ]; then exit 1; fi
+if [[ ! $var ]]; then exit 1; fi
 
 [[ $DEBUG ]] && set -x
 
