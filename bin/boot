@@ -2,9 +2,9 @@
 
 
 if [ -n "${APP_ETCD_PORT_2379_TCP_ADDR:+1}" ]; then
-  echo "foobar is defined"
+  echo "APP_ETCD_PORT_2379_TCP_ADDR is defined"
 else
-  echo "foobar is not defined"
+  echo "APP_ETCD_PORT_2379_TCP_ADDR is not defined => wait"
   exit 1
 fi
 
